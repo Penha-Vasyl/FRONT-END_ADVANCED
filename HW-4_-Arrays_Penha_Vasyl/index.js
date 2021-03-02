@@ -16,17 +16,17 @@ function getPairs(students) {
 
 // 2.Зіставте пари з попереднього завдання та теми проєктів, над якими студенти будуть працювати. 
 function getPairsWithThemes(pairs, themes) {
-  const studentsPairs = [];
+  const pairsWithThemes = [];
 
   for (let i = 0; i < pairs.length; i++) {
     const currentPair = pairs[i];
     const currentTheme = themes[i];
     const currentPairsWithThemes = [currentPair.join(' i '), currentTheme];
     
-    studentsPairs.push(currentPairsWithThemes);
+    pairsWithThemes.push(currentPairsWithThemes);
   }
 
-  return studentsPairs;
+  return pairsWithThemes;
 }
 
 // 3.Зіставте оцінки(marks) зі студентом(students):
