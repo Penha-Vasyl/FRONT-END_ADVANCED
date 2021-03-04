@@ -13,7 +13,7 @@ function raiseToPower(number, power) {
   let result = 1; 
 
   for (let i = 0; i < power; i++) {
-    result = result * number;
+    result *= number;
   }
 
   return result;
@@ -33,19 +33,15 @@ console.log(formatName('boBI'));
 
 // 4. Створити функцію, яка вираховує суму, що залишається після оплати податку від зарабітньої плати.
 function getNetSalary(salary) {
-  const pdfo = salary * 0.18;
-  const vz = salary * 0.015; 
+  const taxes = 0.195;
 
-  return salary - pdfo - vz;
+  return salary - (salary * taxes);
 }
 console.log(getNetSalary(1000));
 
 // 5.Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M.
-function getRandomNumber(min, max) {
-  const rand = Math.random() * (max - min) + min;
+const getRandomNumber = (min, max) => (Math.round(Math.random() * (max - min) + min));
 
-  return Math.round(rand);
-}
 console.log(getRandomNumber(5, 10));
 
 // 6.Створити функцію, яка рахує скільки разів певна буква повторюється в слові. 
@@ -53,9 +49,7 @@ function countLetters(word, letter) {
   let counter = 0;
 
   for (let i = 0; i < word.length; i++) {
-    const char = word.charAt(i);
-
-    if (char === letter) {
+    if (word.charAt(i) === letter) {
       counter++;
     }
   }
@@ -80,10 +74,10 @@ console.log(convertСurrency('100 uah'));
 console.log(convertСurrency('100 SD'));
 
 // 8.Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
-function generateRandomPassword(length = 8) {
+function generateRandomPassword(lengthPassword = 8) {
   let password = ''; 
 
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < lengthPassword; i++) {
     password += getRandomNumber(0, 9);
   }
 
@@ -92,9 +86,8 @@ function generateRandomPassword(length = 8) {
 console.log(generateRandomPassword(4));
 
 // 9.Створіть функцію, яка видаляє всі букви з речення.
-function deleteLetters(sentence, letter) {
-  return sentence.replaceAll(letter, '');
-}
+const deleteLetters = (sentence, letter) => (sentence.replaceAll(letter, ''));
+
 console.log(deleteLetters('blablabla', 'a'));
 
 // 10.Створіть функцію, яка перевіряє, чи є слово паліндромом.
@@ -114,6 +107,7 @@ function deleteDuplicateLetter(sentence) {
       sentence = sentence.replaceAll(currentLetter, '');
     }
   }
+  
   return sentence;
 }
 
