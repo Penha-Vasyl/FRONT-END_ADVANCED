@@ -49,8 +49,8 @@ function countLetters(word, letter) {
   let counter = 0;
 
   for (let i = 0; i < word.length; i++) {
-    if (word.charAt(i) === letter) {
-      counter++;
+    if (word[i] === letter) {
+      counter ++;
     }
   }
 
@@ -101,14 +101,16 @@ console.log(isPalindrome('Я несу гусеня'));
 
 // 11.Створіть функцію, яка видалить з речення букви, які зустрічаються більше 1 разу. 
 function deleteDuplicateLetter(sentence) {
+  let result = sentence.toLowerCase();
+
   for (let i = 0; i < sentence.length; i++) {
     const currentLetter = sentence[i];
-    if (sentence.indexOf(currentLetter) !== sentence.lastIndexOf(currentLetter)) {
-      sentence = sentence.replaceAll(currentLetter, '');
+    if (result.indexOf(currentLetter) !== result.lastIndexOf(currentLetter)) {
+      result = result.replaceAll(currentLetter, '');
     }
   }
   
-  return sentence;
+  return result;
 }
 
 console.log(deleteDuplicateLetter('Бісквіт був дуже ніжним'))
