@@ -38,7 +38,7 @@ function getSubjects(student) {
   });
 }
 
-console.log(getSubjects(students[0]));
+console.log(`Список предметів для студента:`, getSubjects(students[0]));
 
 // 2.Створіть функцію getAverageMark(students[0]) --> 3.79 – яка поверне середню оцінку по усім 
 // предметам для переданого студента НЕ МАСИВА СТУДЕНТІВ. Оцінку округліть до 2ого знаку. Можна 
@@ -60,7 +60,7 @@ function getAverageMark(student) {
   return + getAvarage(numberMarks).toFixed(2);  
 }
 
-console.log(getAverageMark(students[0]));
+console.log(`Cередня оцінка по усім предметам для переданого студента: ${getAverageMark(students[0])}`);
 
 // 3.Створіть функцію getStudentInfo(students[0]) --> { "course": 3, "name": "Tanya", "averageMark": 3.79} – яка повертає 
 // інформацію загального виду по переданому студенту (вам знадобиться функція з попереднього завдання). Повинна бути виведена 
@@ -73,14 +73,14 @@ function getStudentInfo(student) {
   };  
 };
 
-console.log(getStudentInfo(students[0]));
+console.log(`Інформація загального виду по переданому студенту:`, getStudentInfo(students[0]));
 
 // 4.Ствроіть функцію getStudentsNames(students) --> ["Anton", "Tanya, "Victor"] – яка повертає імена студентів у алфавітному порядку.
 function getStudentsNames(students) {
   return students.map((student) => student.name).sort();
 };
 
-console.log(getStudentsNames(students));
+console.log(`Імена студентів у алфавітному порядку:`, getStudentsNames(students));
 
 // 5.Створіть функцію getBestStudent(students) --> "Anton" – яка повертає кращого студента зі списку по показнику середньої оцінки.
 function getBestStudent(students) {
@@ -101,12 +101,12 @@ function getBestStudent(students) {
   return sortedStudentsInfo[0].name;
 };
 
-console.log(getBestStudent(students));
+console.log(`Кращий студента зі списку по показнику середньої оцінки:`, getBestStudent(students));
 
 // 6.Створіть функцію calculateWordLetters("тест") --> { "т": 2, "е": 1, "с": 1 } – яка повертає обє'кт, в якому ключі це букви у слові, 
 // а значення – кількість їх повторень.
 function calculateWordLetters(word) {
-  const letters = word.split('');
+  const letters = word.toLowerCase().split('');
   
   return letters.reduce((accumulator, letter) => {
     let letterCount;
@@ -124,4 +124,4 @@ function calculateWordLetters(word) {
 
 }
 
-console.log(calculateWordLetters("тест"));
+console.log(`Букви у слові, та кількість їх повторень.`, calculateWordLetters("тест"));
