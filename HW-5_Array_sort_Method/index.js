@@ -1,8 +1,8 @@
 // 1.Створіть функцію getRandomArray(length, min, max) – яка повертає масив випадкових цілих чисел.
 function getRandomArray(length, min, max) {
-  const result = Array.from({ length });
+  const result = Array(length).fill().map(() => Math.round(Math.random() * (max - min) + min));
 
-  return result.map(() => Math.round(Math.random() * (max - min) + min));
+  return result
 }
   
 console.log(getRandomArray(7, 1, 100));
@@ -10,8 +10,7 @@ console.log(getRandomArray(7, 1, 100));
 // 3.Створіть функцію getAverage(...numbers) – яка рахує середнє арифметичне всіх переданих в неї аргументів. НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
 function getAverage(...numbers) {
   const integerNumbers = numbers.filter(element => Number.isInteger(element));
-  const reducer = (accumulator, currentValue) => accumulator + currentValue;
-  const sum = integerNumbers.reduce(reducer);
+  const sum = integerNumbers.reduce((acc, item) => acc + item)
 
   return sum / integerNumbers.length;
 }
@@ -22,17 +21,7 @@ console.log(getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
 function getMedian(...numbers) {
   const integerNumbers = numbers.filter(element => Number.isInteger(element));
-  const sortedNumbers = integerNumbers.sort((first, second) => {
-    if (first > second) {
-      return 1;
-    }
-
-    if (first < second) {
-      return -1;
-    }
-
-    return 0;
-  });
+  const sortedNumbers = integerNumbers.sort((a, b) => a - b);
 
   if (sortedNumbers.length % 2 !== 0) {
     const middleIndex = Math.floor(sortedNumbers.length / 2);
@@ -50,10 +39,7 @@ function getMedian(...numbers) {
 console.log(getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
 // 5.Створіть функцію filterEvenNumbers(...numbers) – яка фільтрує парні числа передані як аргументи функції
-function filterEvenNumbers(...numbers) {
-
-  return numbers.filter(element => element % 2 !== 0);
-}
+const filterEvenNumbers = (...numbers) => numbers.filter(element => element % 2 !== 0);
 
 console.log(filterEvenNumbers(1, 2, 3, 4, 5, 6));
 
