@@ -54,21 +54,21 @@ class Student {
 
 const ostap = new Student('Вищої Школи Психотерапії м.Одеса', 1, 'Остап Бендер');
 
-console.log(ostap);
+console.log(`Інформація про студента`, ostap);
 console.log(ostap.getInfo());
 ostap.marks = 5;
 ostap.marks = 4;
 ostap.marks = 4;
 ostap.marks = 5;
 ostap.marks = 5;
-console.log(ostap.marks);
-console.log(ostap.getAverageMark());
+console.log(`Оцінки студента`, ostap.marks);
+console.log(`Середні оцінка студента`, ostap.getAverageMark());
 ostap.dismiss();
 ostap.marks = 2;
-console.log(ostap.marks);
+console.log(`Якщо студент виключений.`,ostap.marks);
 ostap.recover();
 ostap.marks = 3;
-console.log(ostap.marks);
+console.log(`Оцінки студента`, ostap.marks);
 
 // Advanced
 // 1.Створіть новий клас BudgetStudent, який повністю наслідує клас Student
