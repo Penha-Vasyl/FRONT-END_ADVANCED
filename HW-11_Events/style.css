@@ -1,0 +1,28 @@
+.buttons {
+  background-image: url(drums.jpg);
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+  
+
+.instrument {
+  border-radius: 20px;
+  opacity: 0.5;
+  height: 80px;
+  width: 150px;
+}
+
+.instrument:focus {
+  outline: none;
+}
+
+.instrument-active {
+  opacity: 0.9;
+  box-shadow: 0 0px 20px rgba(255, 255, 255, 0.5);
+}
