@@ -33,7 +33,7 @@ class Student {
   }
 
   set marks(mark) {
-    if (this.isDismissed === false) {
+    if (!this.isDismissed) {
       this.marksArr = [...this.marksArr, mark];
     }    
   }
