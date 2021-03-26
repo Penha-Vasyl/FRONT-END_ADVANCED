@@ -29,7 +29,7 @@ const students = [{
 // повертати з великої літери, а _ – замінити на пробіл
 
 function getSubjects(student) {
-  const subjects = Object.keys(student.subjects);
+  const subjects = Object.keys(student?.subjects);
   
   return subjects.map(subject => {
     const correctSubject = subject.replaceAll('_', ' ');
@@ -52,7 +52,7 @@ function getAvarage(numbers) {
 }
 
 function getAverageMark(student) {
-  const marks = Object.values(student.subjects);
+  const marks = Object.values(student?.subjects);
   const numberMarks = marks.reduce((accumulator, item) => {
     return accumulator.concat(item);
   }, []);
@@ -85,18 +85,7 @@ console.log(`Імена студентів у алфавітному поряд�
 // 5.Створіть функцію getBestStudent(students) --> "Anton" – яка повертає кращого студента зі списку по показнику середньої оцінки.
 function getBestStudent(students) {
   const studentsInfo = students.map(student => getStudentInfo(student));
-
-  const sortedStudentsInfo = studentsInfo.sort((first, second) => {
-    if (first.averageMark > second.averageMark) {
-      return -1;
-    }
-
-    if (first.averageMark < second.averageMark) {
-      return 1;
-    }
-    
-    return 0;
-  });
+  const sortedStudentsInfo = studentsInfo.sort((a, b) => b.averageMark - a.averageMark);
 
   return sortedStudentsInfo[0].name;
 };
@@ -109,19 +98,10 @@ function calculateWordLetters(word) {
   const letters = word.toLowerCase().split('');
   
   return letters.reduce((accumulator, letter) => {
-    let letterCount;
-
-    if (accumulator[letter] === undefined) {
-      letterCount = 1;
-    } else {
-      letterCount = accumulator[letter] + 1;
-    }
-
-    accumulator[letter] = letterCount;
+    accumulator[letter] = accumulator[letter] + 1 || 1;
 
     return accumulator;
   }, {})
-
 }
 
 console.log(`Букви у слові, та кількість їх повторень.`, calculateWordLetters("тест"));
